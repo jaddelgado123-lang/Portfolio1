@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#17152f">
+  <meta name="description" content="Jad Jonmer Delgado — fourth-year BSIT student at Cebu Eastern College.">
+  <title>Jad Jonmer Delgado | Digital Portfolio</title>
+  <style>
+    :root {
+      --night: #17152f;
+      --night-2: #211d45;
+      --paper: #fffdf8;
+      --ink: #201d3b;
+      --muted: #6c6886;
+      --purple: #8b5cf6;
+      --pink: #ff5da2;
+      --cyan: #47e5d1;
+      --yellow: #ffd166;
+      --line: #e8e3f5;
+      --shadow: 0 20px 60px rgba(35, 24, 75, .12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      background: var(--paper); color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7; overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+    .container { width: min(1120px, 90%); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20; color: white;
+      background: rgba(23, 21, 47, .94); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 850; letter-spacing: -.5px; }
+    .brand-mark {
+      width: 40px; height: 40px; display: grid; place-items: center; border-radius: 13px;
+      color: var(--night); background: linear-gradient(135deg, var(--cyan), var(--yellow)); font-size: .9rem;
+    }
+    .nav-links { display: flex; align-items: center; gap: 27px; list-style: none; font-size: .88rem; color: #e5e0ff; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-cta { border: 1px solid rgba(71,229,209,.65); padding: 9px 15px; border-radius: 999px; }
+    .hero {
+      color: white; position: relative; overflow: hidden;
+      background: radial-gradient(circle at 78% 20%, rgba(255,93,162,.25), transparent 28%),
+                  radial-gradient(circle at 12% 90%, rgba(71,229,209,.16), transparent 28%),
+                  linear-gradient(135deg, var(--night), #29205b 72%, #39236d);
+    }
+    .hero-inner { min-height: 610px; padding-block: 95px 90px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 65px; align-items: center; }
+    .kicker { text-transform: uppercase; font-size: .74rem; font-weight: 800; letter-spacing: 2.4px; color: var(--cyan); }
+    h1 { font-size: clamp(3.1rem, 7vw, 6.3rem); line-height: .98; letter-spacing: -.065em; margin: 22px 0; }
+    h1 .gradient { background: linear-gradient(90deg, var(--cyan), #a78bfa 52%, var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-copy { color: #d9d4f4; max-width: 580px; font-size: 1.05rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 19px; border-radius: 12px; font-weight: 800; font-size: .9rem; transition: transform .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-main { background: linear-gradient(100deg, var(--cyan), #9af3df); color: var(--night); box-shadow: 0 10px 30px rgba(71,229,209,.16); }
+    .btn-outline { border: 1px solid rgba(255,255,255,.35); color: white; }
+    .hero-visual { min-height: 370px; position: relative; display: grid; place-items: center; }
+    .orbit { position: absolute; width: min(340px, 90%); aspect-ratio: 1; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; transform: rotate(-18deg); }
+    .orbit::before, .orbit::after { content: ""; position: absolute; border-radius: 50%; }
+    .orbit::before { inset: 25px; border: 1px dashed rgba(71,229,209,.45); }
+    .orbit::after { width: 18px; height: 18px; top: 25px; right: 48px; background: var(--pink); box-shadow: 0 0 25px var(--pink); }
+    .avatar-card { z-index: 1; width: min(280px, 80%); aspect-ratio: .82; border-radius: 42% 42% 28px 28px; background: linear-gradient(150deg, var(--cyan), #8b5cf6 60%, var(--pink)); padding: 12px; transform: rotate(3deg); box-shadow: 0 25px 70px rgba(0,0,0,.28); }
+    .avatar-inner { height: 100%; border-radius: inherit; background: linear-gradient(150deg, #30235e, #19152f); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+    .initials { font-size: clamp(4.2rem, 9vw, 6.2rem); font-weight: 950; line-height: 1; letter-spacing: -.09em; color: white; }
+    .avatar-inner small { color: var(--cyan); letter-spacing: 2px; font-weight: 800; margin-top: 18px; font-size: .67rem; }
+    .float-chip { position: absolute; z-index: 2; border: 1px solid rgba(255,255,255,.15); border-radius: 14px; padding: 10px 14px; background: rgba(255,255,255,.1); backdrop-filter: blur(10px); font-size: .78rem; font-weight: 750; }
+    .chip-one { top: 34px; left: 0; color: var(--yellow); }
+    .chip-two { bottom: 36px; right: 0; color: var(--cyan); }
+    .quick-facts { background: var(--yellow); color: var(--night); }
+    .facts-inner { display: grid; grid-template-columns: repeat(3,1fr); padding-block: 21px; gap: 15px; text-align: center; }
+    .fact { font-size: .86rem; font-weight: 800; }
+    section { padding: 90px 0; }
+    .section-head { max-width: 680px; margin-bottom: 38px; }
+    .section-label { color: #7546e8; text-transform: uppercase; font-size: .72rem; font-weight: 900; letter-spacing: 2.2px; }
+    h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); line-height: 1.08; letter-spacing: -.055em; margin-top: 12px; }
+    .section-head p:last-child { color: var(--muted); margin-top: 15px; }
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: stretch; }
+    .about-copy { padding: 30px 0; }
+    .about-copy h3 { font-size: 1.4rem; margin-bottom: 13px; }
+    .about-copy p { color: var(--muted); margin-bottom: 14px; }
+    .info-card { background: #f5f1ff; border: 1px solid #e5dcff; border-radius: 24px; padding: 28px; box-shadow: var(--shadow); }
+    .info-card h3 { margin-bottom: 15px; }
+    .info-row { display: grid; grid-template-columns: 105px 1fr; gap: 12px; padding: 13px 0; border-bottom: 1px solid #e1d8fa; font-size: .9rem; }
+    .info-row:last-child { border-bottom: 0; }
+    .info-row span { color: var(--muted); }
+    .info-row strong { overflow-wrap: anywhere; }
+    .skills-section { background: #f7f5ff; }
+    .skills-grid, .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .skill-card { padding: 27px; border-radius: 22px; background: white; border: 1px solid var(--line); box-shadow: 0 12px 35px rgba(35,24,75,.05); transition: transform .2s, box-shadow .2s; }
+    .skill-card:hover, .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .skill-icon { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 17px; font-size: 1.55rem; margin-bottom: 22px; }
+    .skill-card:nth-child(1) .skill-icon { background: #e0fbf7; }
+    .skill-card:nth-child(2) .skill-icon { background: #fce4f0; }
+    .skill-card:nth-child(3) .skill-icon { background: #fff0c2; }
+    .skill-card h3, .project-card h3 { font-size: 1.15rem; margin-bottom: 9px; }
+    .skill-card p, .project-card p { color: var(--muted); font-size: .9rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+    .tag { background: #f0ebff; color: #6941c6; border-radius: 999px; padding: 5px 10px; font-size: .7rem; font-weight: 800; }
+    .project-card { overflow: hidden; border: 1px solid var(--line); background: white; border-radius: 22px; padding: 14px 14px 24px; transition: transform .2s, box-shadow .2s; }
+    .project-art { min-height: 170px; border-radius: 15px; display: grid; place-items: center; margin-bottom: 21px; font-size: 3.3rem; color: var(--night); }
+    .project-card:nth-child(1) .project-art { background: linear-gradient(135deg, #9af3df, #b6a0ff); }
+    .project-card:nth-child(2) .project-art { background: linear-gradient(135deg, #ffd166, #ff91c5); }
+    .project-card:nth-child(3) .project-art { background: linear-gradient(135deg, #b6a0ff, #8be9ff); }
+    .project-content { padding-inline: 10px; }
+    .contact-section { padding-top: 20px; }
+    .contact-panel { position: relative; overflow: hidden; border-radius: 28px; padding: clamp(30px, 6vw, 68px); background: linear-gradient(125deg, var(--night), #35206b); color: white; }
+    .contact-panel::after { content: "✦"; position: absolute; right: 5%; top: -40px; font-size: 15rem; line-height: 1; color: rgba(255,255,255,.06); pointer-events: none; }
+    .contact-panel h2 { max-width: 670px; position: relative; z-index: 1; }
+    .contact-panel p { color: #d7d0f2; max-width: 590px; margin: 18px 0 25px; position: relative; z-index: 1; }
+    .contact-panel .btn { position: relative; z-index: 1; }
+    footer { padding: 26px 0; color: var(--muted); font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
+    @media (max-width: 800px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 25px; padding-block: 75px 60px; }
+      .hero-visual { min-height: 340px; }
+      .about-grid { grid-template-columns: 1fr; gap: 10px; }
+      .skills-grid, .projects-grid { grid-template-columns: repeat(2,1fr); }
+      .nav-links { gap: 15px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 34px, 1120px); }
+      nav { min-height: 68px; }
+      .brand { font-size: .88rem; }
+      .brand-mark { width: 35px; height: 35px; }
+      .nav-links { gap: 12px; font-size: .75rem; }
+      .nav-links li:nth-child(2), .nav-cta { display: none; }
+      .hero-inner { padding-block: 65px 45px; }
+      h1 { font-size: clamp(3rem, 14vw, 4.8rem); }
+      .hero-visual { min-height: 310px; }
+      .orbit { width: 285px; }
+      .avatar-card { width: 225px; }
+      .chip-one { left: 0; top: 24px; }
+      .chip-two { right: 0; bottom: 20px; }
+      .facts-inner { grid-template-columns: 1fr; gap: 7px; padding-block: 18px; }
+      section { padding: 65px 0; }
+      .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      .info-card { padding: 21px; }
+      .info-row { grid-template-columns: 88px 1fr; font-size: .84rem; }
+      .project-art { min-height: 150px; }
+      .contact-section { padding-top: 0; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Jad Delgado home">
+        <span class="brand-mark">JD</span><span>Jad Delgado<span style="color:var(--cyan)">.</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Profile</a></li>
+        <li><a href="#skills">Expertise</a></li>
+        <li><a href="#projects">Portfolio</a></li>
+        <li><a class="nav-cta" href="#contact">Say Hello ↗</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home" style="padding:0;border:0">
+      <div class="container hero-inner">
+        <div>
+          <p class="kicker">Fourth-Year BSIT Student · Future Tech Professional</p>
+          <h1>Curious mind.<br><span class="gradient">Creative code.</span></h1>
+          <p class="hero-copy">I'm Jad Jonmer Delgado, an Information Technology student at Cebu Eastern College. I enjoy exploring how technology, thoughtful design, and practical problem-solving can turn everyday challenges into useful digital experiences.</p>
+          <div class="actions">
+            <a class="btn btn-main" href="#projects">View my portfolio <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline" href="#about">Get to know me</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Decorative initials JD">
+          <div class="orbit"></div>
+          <div class="avatar-card"><div class="avatar-inner"><span class="initials">JD.</span><small>LEARN · BUILD · IMPROVE</small></div></div>
+          <div class="float-chip chip-one">✦ Always learning</div>
+          <div class="float-chip chip-two">{"</>"} Digital creator</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="quick-facts">
+      <div class="container facts-inner">
+        <div class="fact">🎓 Cebu Eastern College</div>
+        <div class="fact">💻 Bachelor of Science in IT</div>
+        <div class="fact">🚀 Ready for new challenges</div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">A little about my journey</p>
+          <h2>Building my future, one skill at a time.</h2>
+          <p>Technology keeps evolving, and I'm excited to keep learning, experimenting, and discovering where my skills can make a difference.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <h3>Learning today. Creating what's next.</h3>
+            <p>As a fourth-year BSIT student, I'm strengthening my understanding of information technology through coursework, practice, and hands-on projects. I value curiosity, patience, and the willingness to learn from every challenge.</p>
+            <p>I hope to apply what I learn to develop digital solutions that are easy to use, thoughtfully made, and genuinely helpful. Each new project is an opportunity to grow both technically and creatively.</p>
+          </div>
+          <aside class="info-card">
+            <h3>Student snapshot <span style="color:#8b5cf6">✳</span></h3>
+            <div class="info-row"><span>Full name</span><strong>Jad Jonmer Delgado</strong></div>
+            <div class="info-row"><span>Year level</span><strong>4th Year</strong></div>
+            <div class="info-row"><span>Program</span><strong>BS Information Technology</strong></div>
+            <div class="info-row"><span>Institution</span><strong>Cebu Eastern College</strong></div>
+            <div class="info-row"><span>Interests</span><strong>Web, design & technology</strong></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">Tools & interests</p>
+          <h2>What I'm exploring.</h2>
+          <p>These are areas that can support my growth as an IT student. Update the tools below to match your actual experience and confidence level.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <span class="skill-icon" aria-hidden="true">🎨</span>
+            <h3>Interface Design</h3>
+            <p>Organizing content, color, and layout to make screens feel clear, attractive, and consistent.</p>
+            <div class="tags"><span class="tag">Layout</span><span class="tag">Visual design</span></div>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon" aria-hidden="true">🧩</span>
+            <h3>Problem Solving</h3>
+            <p>Breaking down a task, understanding what is needed, and exploring practical ways to solve it.</p>
+            <div class="tags"><span class="tag">Analysis</span><span class="tag">Planning</span></div>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon" aria-hidden="true">⌨️</span>
+            <h3>Web Technologies</h3>
+            <p>Learning how web pages are structured, styled, and made interactive across different screens.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">Work in progress</p>
+          <h2>Ideas turned into projects.</h2>
+          <p>Use this space to showcase real class assignments, personal builds, or prototypes as you complete them.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-art" aria-hidden="true">✧</div>
+            <div class="project-content">
+              <h3>Personal Portfolio</h3>
+              <p>A responsive personal website concept for presenting an introduction, interests, and selected work in one place.</p>
+              <div class="tags"><span class="tag">Web design</span><span class="tag">Responsive</span></div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art" aria-hidden="true">▦</div>
+            <div class="project-content">
+              <h3>Campus Solution Concept</h3>
+              <p>A placeholder for a school-based system or app idea designed to make a campus task more organized and convenient.</p>
+              <div class="tags"><span class="tag">Planning</span><span class="tag">UI concept</span></div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art" aria-hidden="true">&lt;/&gt;</div>
+            <div class="project-content">
+              <h3>Web Development Practice</h3>
+              <p>A section for a coding exercise or small website that demonstrates your progress with front-end development.</p>
+              <div class="tags"><span class="tag">HTML & CSS</span><span class="tag">Practice</span></div>
+            </div>
+          </article>
+        </div>
+        <p style="margin-top:18px;color:var(--muted);font-size:.82rem">Portfolio tip: replace these sample project descriptions with your own completed work before submitting.</p>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <p class="kicker">Have an idea to share?</p>
+          <h2>Let's connect and create something meaningful.</h2>
+          <p>I'm interested in learning from others, sharing ideas, and taking on opportunities that help me grow in the world of IT. Add your preferred contact details below to make it easy to reach you.</p>
+          <a class="btn btn-main" href="mailto:your.email@example.com">Email Jad ↗</a>
+          <p style="font-size:.82rem;margin-bottom:0">Email and social links are placeholders—replace them with your own details.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Jad Jonmer Delgado · Cebu Eastern College</span>
+      <span>Made with curiosity, color, and code ✦</span>
+    </div>
+  </footer>
+</body>
+</html>
